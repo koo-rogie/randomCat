@@ -1,39 +1,223 @@
+/* RandomCat.module.css */
+
 .RandomCat-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-block: 16px;
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .RandomCat-header-title {
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0 0 25px 0;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
+
 .button {
-  background-color: skyblue;
-  color: #111;
-  transition: 0.3s;
-  &:hover {
-    background-color: rgb(53, 120, 146);
-    color: #eee;
-  }
+  background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+  border: none;
+  padding: 16px 32px;
+  border-radius: 50px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.button:hover::before {
+  left: 100%;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
+}
+
+.button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
 }
 
 .RandomCat-content {
-  ul {
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    flex-wrap: wrap;
-    gap: 10px;
-    li {
-      width: 200px;
-      height: 200px;
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.RandomCat-content ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.RandomCat-content li {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  position: relative;
+}
+
+.RandomCat-content li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.RandomCat-content li:hover::before {
+  opacity: 1;
+}
+
+.RandomCat-content li:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.RandomCat-content img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  position: relative;
+  z-index: 0;
+}
+
+.RandomCat-content li:hover img {
+  transform: scale(1.05);
+}
+
+/* 로딩 상태 */
+.RandomCat-content ul:empty::after {
+  content: "🐱 귀여운 고양이들을 불러오는 중...";
+  display: block;
+  text-align: center;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 60px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
   }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .RandomCat-header {
+    padding: 25px 20px;
+    margin-bottom: 30px;
+  }
+
+  .RandomCat-header-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .button {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+
+  .RandomCat-content {
+    padding: 20px;
+  }
+
+  .RandomCat-content ul {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .RandomCat-content img {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .RandomCat-header {
+    padding: 20px 15px;
+  }
+
+  .RandomCat-header-title {
+    font-size: 1.3rem;
+  }
+
+  .button {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+
+  .RandomCat-content ul {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .RandomCat-content img {
+    height: 220px;
+  }
+}
+
+/* 이미지 로딩 실패시 스타일 */
+.RandomCat-content img[src=""],
+.RandomCat-content img:not([src]) {
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.RandomCat-content img[src=""]::after,
+.RandomCat-content img:not([src])::after {
+  content: "🐱";
+  font-size: 3rem;
 }
