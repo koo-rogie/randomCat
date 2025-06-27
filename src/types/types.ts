@@ -6,7 +6,7 @@ export interface Cat {
 }
 
 export interface CatList {
-  items: Cat[][];
+  items: Cat[];
 }
 
 export type State = {
@@ -15,8 +15,4 @@ export type State = {
   error: string | null;
 };
 
-export type Action = { type: "FETCH_INIT" }
-  | { type: "FETCH_SUCCESS"; payload: CatList["items"] }
-  | { type: "FETCH_FAILURE"; payload: string };
-
-
+export type Action = { type: "FETCH_INIT" } | { type: "FETCH_SUCCESS"; payload: CatList["items"] } | { type: "FETCH_FAILURE"; payload: string };

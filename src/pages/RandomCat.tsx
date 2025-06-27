@@ -12,6 +12,7 @@ function RandomCat() {
     dispatch({ type: "FETCH_INIT" });
     try {
       const res = await axiosInstance.get("/search");
+      console.log("데이터 받아오기", res);
       dispatch({ type: "FETCH_SUCCESS", payload: res.data });
       console.log(res.data);
     } catch (err) {
@@ -21,7 +22,7 @@ function RandomCat() {
     }
   };
 
-  const itemList = state.items.flat().map((item) => (
+  const itemList = state.items.map((item) => (
     <li key={item.id}>
       <img src={item.url} alt={item.id} />
     </li>
