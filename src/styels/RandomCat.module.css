@@ -1,0 +1,39 @@
+.RandomCat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block: 16px;
+}
+
+.RandomCat-header-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.button {
+  background-color: skyblue;
+  color: #111;
+  transition: 0.3s;
+  &:hover {
+    background-color: rgb(53, 120, 146);
+    color: #eee;
+  }
+}
+
+.RandomCat-content {
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
+    gap: 10px;
+    li {
+      width: 200px;
+      height: 200px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
