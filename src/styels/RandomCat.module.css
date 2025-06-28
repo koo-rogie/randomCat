@@ -36,6 +36,7 @@
   box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
   position: relative;
   overflow: hidden;
+  margin-right: 12px;
 }
 
 .button::before {
