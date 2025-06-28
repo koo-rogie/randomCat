@@ -8,6 +8,15 @@ export default function reducer(state: State, action: Action): State {
       return { items: [...action.payload, ...state.items], loading: false, error: null };
     case "FETCH_FAILURE":
       return { ...state, loading: false, error: action.payload };
+    case "FETCH_MORE_SUCCESS":
+      return {
+        ...state,
+        items: [...action.payload, ...state.items],
+        loading: false,
+        error: null,
+      };
+    case "CLEAR_ITEMS":
+      return { ...state, items: [], error: null };
     default:
       return state;
   }
