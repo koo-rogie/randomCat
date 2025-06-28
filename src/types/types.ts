@@ -15,4 +15,10 @@ export type State = {
   error: string | null;
 };
 
-export type Action = { type: "FETCH_INIT" } | { type: "FETCH_SUCCESS"; payload: CatList["items"] } | { type: "FETCH_FAILURE"; payload: string };
+// types.ts
+export type Action =
+  | { type: "FETCH_INIT" }
+  | { type: "FETCH_SUCCESS"; payload: Cat[] }
+  | { type: "FETCH_FAILURE"; payload: string }
+  | { type: "FETCH_MORE_SUCCESS"; payload: Cat[] }
+  | { type: "CLEAR_ITEMS"; };
