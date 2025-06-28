@@ -1,0 +1,24 @@
+.Error {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.top-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  gap: 0.5rem;
+  > a {
+    display: inline-block;
+    border-radius: 16px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    padding: 8px 12px;
+    transition: 1s;
+    &:hover {
+      background: linear-gradient(45deg, #764ba2, #667eea);
+    }
+  }
+}
