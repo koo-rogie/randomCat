@@ -16,9 +16,4 @@ export type State = {
 };
 
 // types.ts
-export type Action =
-  | { type: "FETCH_INIT" }
-  | { type: "FETCH_SUCCESS"; payload: Cat[] }
-  | { type: "FETCH_FAILURE"; payload: string }
-  | { type: "FETCH_MORE_SUCCESS"; payload: Cat[] }
-  | { type: "CLEAR_ITEMS"; };
+export type Action = { type: "SUCCESS"; payload: Cat[] } | { type: "CLEAR_ITEMS" };
