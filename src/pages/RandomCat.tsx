@@ -18,7 +18,6 @@ function RandomCat() {
 
       // 받은 데이터를 상태에 저장
       dispatch({ type: "SUCCESS", payload: res.data });
-      setLoading(true);
       console.log("데이터 저장 완료:", res.data);
     } catch (err) {
       setError(err as Error);
@@ -36,7 +35,7 @@ function RandomCat() {
   // 고양이 목록 초기화
   const clearCatList = () => {
     dispatch({ type: "CLEAR_ITEMS" });
-    console.log("고양이 목록 초기화 완료");
+    alert("고양이 목록 초기화 완료");
   };
 
   useEffect(() => {
